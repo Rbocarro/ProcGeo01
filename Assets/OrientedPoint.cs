@@ -18,4 +18,14 @@ public struct OrientedPoint
         this.pos = pos;
         this.rot = Quaternion.LookRotation(forward);
     }
+
+    public Vector3 LocalToWorldPos(Vector3 localSpacePosition)
+    {
+       return pos+ rot* localSpacePosition;
+    }
+
+    public Vector3 LocalToWorldVector(Vector3 localSpacePosition)
+    {
+        return (rot * localSpacePosition);
+    }
 }
